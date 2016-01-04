@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.LoginScreenController">
+    <children>
+        <Button fx:id="button" layoutX="538.0" layoutY="436.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="60.0" text="Login" />
+        <Label fx:id="label" layoutX="503.0" layoutY="298.0" minHeight="16" minWidth="69" text="Welcome" />
+      <TextField fx:id="username_box" layoutX="451.0" layoutY="341.0" />
+      <Label fx:id="label1" layoutX="382.0" layoutY="345.0" minHeight="16" minWidth="69" text="Username" />
+      <Label fx:id="label11" layoutX="382.0" layoutY="388.0" minHeight="16" minWidth="69" text="Password" />
+      <Label fx:id="invalid_label" layoutX="445.0" layoutY="490.0" prefHeight="17.0" prefWidth="170.0" textFill="#ee0b0b" />
+      <PasswordField fx:id="password_box" layoutX="451.0" layoutY="384.0" onAction="#handleButtonAction" />
+      <Button fx:id="BackButton" layoutX="451.0" layoutY="436.0" mnemonicParsing="false" onAction="#handleBackAction" prefHeight="25.0" prefWidth="60.0" text="Back" />
+    </children>
+</AnchorPane>

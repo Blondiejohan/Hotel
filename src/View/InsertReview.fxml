@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<SplitPane orientation="VERTICAL" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.InsertReview">
+  <items>
+    <AnchorPane>
+         <children>
+            <TextField fx:id="UserField" layoutX="41.0" layoutY="15.0" promptText="User">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </TextField>
+            <Button fx:id="CancelButton" layoutX="908.0" layoutY="708.0" mnemonicParsing="false" onAction="#Cancel" text="Cancel" />
+            <Button fx:id="insert" layoutX="719.0" layoutY="707.0" mnemonicParsing="false" onAction="#handleOk" text="Submit your review" />
+            <TextArea fx:id="InfoField" layoutX="46.0" layoutY="145.0" prefHeight="535.0" prefWidth="942.0" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextArea>
+            <TextField fx:id="HotelNameField" editable="false" layoutX="666.0" layoutY="14.0" prefHeight="44.0" prefWidth="287.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <CheckBox fx:id="OneStarCheckBox" layoutX="46.0" layoutY="113.0" mnemonicParsing="false" onAction="#OneStarChosen" />
+            <CheckBox fx:id="TwoStarCheckBox" layoutX="85.0" layoutY="113.0" mnemonicParsing="false" onAction="#TwoStarChosen" />
+            <CheckBox fx:id="ThreeStarCheckBox" layoutX="122.0" layoutY="113.0" mnemonicParsing="false" onAction="#ThreeStarChosen" />
+            <CheckBox fx:id="FourStarCheckBox" layoutX="160.0" layoutY="113.0" mnemonicParsing="false" onAction="#FourStarChosen" />
+            <CheckBox fx:id="FiveStarCheckBox" layoutX="199.0" layoutY="113.0" mnemonicParsing="false" onAction="#FiveStarChosen" />
+            <Label layoutX="220.0" layoutY="108.0" prefHeight="25.0" prefWidth="17.0" text="5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="179.0" layoutY="109.0" prefHeight="25.0" prefWidth="17.0" text="4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="143.0" layoutY="109.0" prefHeight="25.0" prefWidth="17.0" text="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="105.0" layoutY="109.0" prefHeight="25.0" prefWidth="17.0" text="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="65.0" layoutY="109.0" prefHeight="25.0" prefWidth="17.0" text="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+  </items>
+</SplitPane>

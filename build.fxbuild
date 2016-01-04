@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<anttasks:AntTask xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:anttasks="http://org.eclipse.fx.ide.jdt/1.0" buildDirectory="H:\!Drive\Software Engeneering and Management\Programming DIT948\Java filer\Hotel DSS">
+  <deploy>
+    <application name="Test" mainclass="ch.makery.address.view.ch.makery.address.view." version="1.0"/>
+    <info title="Hotels" vendor="Johan"/>
+  </deploy>
+  <signjar/>
+</anttasks:AntTask>

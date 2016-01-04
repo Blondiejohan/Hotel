@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RegisterScreenController">
+   <children>
+      <TextField fx:id="RegName" layoutX="438.0" layoutY="331.0" promptText="Username" />
+      <PasswordField fx:id="RegPass" layoutX="438.0" layoutY="376.0" onAction="#handleRegistrationAction" promptText="Password" />
+      <Button layoutX="456.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleRegistrationAction" prefHeight="45.0" prefWidth="113.0" text="Register" />
+      <Label layoutX="480.0" layoutY="291.0" text="Register">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="456.0" layoutY="484.0" mnemonicParsing="false" onAction="#goToOverview" prefHeight="45.0" prefWidth="113.0" text="Back" />
+      <Label fx:id="InvalidLabel" layoutX="365.0" layoutY="543.0" prefHeight="17.0" prefWidth="294.0" textFill="RED" />
+   </children>
+</AnchorPane>

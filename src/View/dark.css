@@ -1,0 +1,208 @@
+.root{
+    -fx-font-family: "System";
+    -fx-background: white;
+    -fx-base: white;
+    -fx-selection-background-color: white;
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+.choice-box {
+    -fx-text-fill: black;
+    }
+.choice-box .context-menu {
+       -fx-background-color: #1d1d1d;
+    }
+
+.background {
+    -fx-background-color: #FFFFFF;
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+.label {
+
+    -fx-text-fill: black;
+    -fx-background-color: white;
+
+}
+
+.label-bright {
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: #1d1d1d;
+
+}
+
+.check-box {
+	-fx-text-fill: black;
+	-fx-background-color: white;
+}
+.check-box>.box {
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+  -fx-background-color: white;
+    -fx-border-color: black;
+}
+
+.label-header {
+    //-fx-font-size: 32pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: #1d1d1d;
+	-fx-background-color:black;
+
+}
+
+.table-view {
+    -fx-control-inner-background: white;
+    -fx-background-color: white;
+    -fx-table-cell-border-color: black;
+    -fx-table-header-border-color: white;
+    -fx-table-header-background-color: white;
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+
+}
+
+.table-view .column-header{
+    -fx-background-color: white;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: white;
+    -fx-border-insets: 0 10 1 0;
+    -fx-background-colour: grey;	
+-fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+.table-view .column-header{
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: black;
+    -fx-background-colour: grey;
+    -fx-border-color: white;
+    -fx-opacity: 1;
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+
+.table-cell { 
+	-fx-background-color: white;
+	-fx-background: white ;
+	-fx-border-width: 1px; 
+	-fx-border-style: solid;
+	-fx-border-color: #1d1d1d;
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+.table-cell:pressed {
+  -fx-background-color: grey;
+  -fx-text-fill: #1d1d1d;
+}
+
+.table-cell:focused {
+	  -fx-background-color: grey;
+  	  -fx-text-fill: #1d1d1d;
+}
+.table-cell:selected {
+    -fx-background-color: grey;
+	-fx-text-fill: #1d1d1d;
+}
+.table-cell:hover {
+    -fx-background-color: grey;
+	-fx-text-fill: #1d1d1d;
+}
+
+.grid-pane {
+	-fx-border-color: #1d1d1d;
+
+}
+
+
+.split-pane:horizontal > * > .split-pane-divider {
+    -fx-border-color: white;
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+.split-pane-divider{
+	-fx-background-color:white;
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+.split-pane {
+    -fx-padding: 1 0 0 0;
+    -fx-border-color: #1d1d1d;
+}
+
+.anchor-pane {
+	-fx-border-color: white;
+}
+
+.menu-bar {
+    -fx-background-color: white;
+	-fx-border-color: black;
+}
+
+.menu-bar.label {
+
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+
+
+.text-field {
+    -fx-text-fill: black;
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+    }
+
+}
+
+.button {
+    -fx-border-color: #555555;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: #d8d8d8;
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+.button:hover {
+    -fx-background-color: #3a3a3a;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+  -fx-text-fill: #1d1d1d;
+}
+
+.button:focused {
+    -fx-border-color: #039ed3, white;
+    -fx-border-width: 1, 1;
+    -fx-border-style: solid, segments(1, 1);
+    -fx-border-radius: 0, 0;
+
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #ffffff;
+}
+
+.button:default:hover {
+    -fx-background-color: derive(-fx-focus-color,30%);
+}
+

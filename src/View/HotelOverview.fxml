@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ButtonBar?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HotelOverviewController">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane prefHeight="300.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="HotelTable" layoutX="-12.0" layoutY="43.0" prefHeight="298.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="HotelNameColumn" prefWidth="199.0" text="Hotels" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane prefHeight="300.0" prefWidth="400.0">
+               <children>
+                  <GridPane layoutX="10.0" prefHeight="222.0" prefWidth="417.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label text="Hotel Name">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="HotelNameLabel" prefHeight="27.0" prefWidth="346.0" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Stars" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="StarsLabel" prefHeight="27.0" prefWidth="344.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Popularity" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="PopularityLabel" prefHeight="27.0" prefWidth="346.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Disctance" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="DistanceLabel" prefHeight="27.0" prefWidth="361.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Breakfast" GridPane.rowIndex="9">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="BreakfastLabel" prefHeight="27.0" prefWidth="399.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Bar" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="BarLabel" prefHeight="27.0" prefWidth="402.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Gym" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="GymLabel" prefHeight="27.0" prefWidth="429.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="PetsLabel" prefHeight="27.0" prefWidth="392.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="PoolLabel" prefHeight="27.0" prefWidth="358.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Pets" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Pool" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Price" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="PriceLabel" prefHeight="27.0" prefWidth="361.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <ButtonBar layoutX="5.0" layoutY="218.0" prefHeight="50.0" prefWidth="490.0" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0">
+                    <buttons>
+                        <Button mnemonicParsing="false" onAction="#goToRegister" prefHeight="50.0" prefWidth="87.0" text="Register" />
+                        <Button mnemonicParsing="false" onAction="#goToEditHotel" prefHeight="62.0" prefWidth="79.0" text="Edit" />
+                        <Button mnemonicParsing="false" onAction="#handleNewHotel" prefHeight="62.0" prefWidth="79.0" text="New" />
+                        <Button mnemonicParsing="false" onAction="#GoToDeleteHotel" prefHeight="62.0" prefWidth="79.0" text="Delete" />
+                        <Button mnemonicParsing="false" onAction="#goToOutput" prefHeight="62.0" prefWidth="79.0" text="Logout" />
+                    </buttons>
+                  </ButtonBar>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
