@@ -24,6 +24,15 @@ import Application.App;
 import Classes.Reviews;
 import Database.ReviewJDBC;
 
+/**
+ * ViewReviewUser.java
+ * Purpose: Class contains the view reviews by user functionality.
+ * 
+ * @author Adin during sprint 3/4
+ * @version 1.0
+ *
+ */
+
 public class ViewReviewUser implements Initializable, ControlledScreen {
 
 
@@ -45,7 +54,7 @@ public class ViewReviewUser implements Initializable, ControlledScreen {
 	@FXML 
 	private Label StarsLabel;
 	@FXML 
-	ArrayList<Reviews> database = ReviewJDBC.RetrieveUserReviews("Adin");
+	ArrayList<Reviews> database = ReviewJDBC.RetrieveReviews();
 	@FXML
 	private ObservableList<Reviews> obslist = FXCollections.observableArrayList(database);
 
@@ -58,7 +67,9 @@ public class ViewReviewUser implements Initializable, ControlledScreen {
 	public void setScreenParent(MainController screenParent){
 		main = screenParent;
 	}
-	
+	/*
+	 * Initializes screen with content from sql query databas.
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -103,17 +114,25 @@ public class ViewReviewUser implements Initializable, ControlledScreen {
 			}
 		}
 
+	/*
+	 * returns to all reviews
+	 */
 	@FXML
 	private void Cancel(ActionEvent event){
 		main.setScreen(App.HotelViewAllReviewId);
 	}
-
+	/*
+	 * updates list with the previous chosen user in the view all reviews page.
+	 */
 	@FXML public void setList(){
 		database = ReviewJDBC.RetrieveUserReviews(hoteluser);
 		obslist = FXCollections.observableList(database);
 		ReviewsTable.setItems(obslist);
 
 	}
+	/*
+	 * shows a review and all diffrent aspects in the database
+	 */
 	private void showReviewDetails(Reviews Review) {
 		if (Review != null) {
 

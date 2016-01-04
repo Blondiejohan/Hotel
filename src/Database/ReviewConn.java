@@ -2,6 +2,11 @@ package Database;
 
 import java.sql.*;
 
+/* Dbconnection, connection for smaller part of the database
+* @author Adin during sprint 3
+* @version 1.0
+*/
+
 public class ReviewConn {
 
 
@@ -21,7 +26,7 @@ public class ReviewConn {
 		}
 
 	}
-
+	
 	/**
 	 * Returns a connection to the database.
 	 * 

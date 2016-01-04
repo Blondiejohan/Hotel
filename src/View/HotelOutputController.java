@@ -89,22 +89,24 @@ public class HotelOutputController implements Initializable, ControlledScreen {
 	private String temporarySearch = "";
 	private MainController main;
 	public static IntegerProperty updateOutput;
-	
+	int countertmp = 0;
+
 	/**
 	 * This method sets the mainController as screenParent.
 	 */
 	public void setScreenParent(MainController screenParent){
 		main = screenParent;
 	}
-	
+
 	/**
 	 * This method sets the current scene to the login FXML.
+	 * Created by Jakob Sprint 1/2
 	 * @param event
 	 */
 	@FXML private void goToAdmin(ActionEvent event){
 		main.setScreen(App.LoginScreenID);
 	}
-	
+
 	@FXML private void goToReview(ActionEvent event){
 		Hotel hotel = HotelTable.getSelectionModel().getSelectedItem();
 		if (hotel != null) {
@@ -119,76 +121,189 @@ public class HotelOutputController implements Initializable, ControlledScreen {
 			alert.showAndWait();
 		}
 	}
-	
+
 	@FXML private void goToCompare(ActionEvent event){
 		main.setScreen(App.HotelCompareId);
 	}
-	
-	
-	@FXML private void countFilters(ActionEvent event){
+
+
+	@FXML private void countFilters(ActionEvent e){
+		int counter = 0;
 		if(checkfilter1.isSelected()){
 			filters.add(checkfilter1.getText());
+			counter++;
 		}
 		if(checkfilter2.isSelected()){
 			filters.add(checkfilter2.getText());
+			counter++;
 		}
 		if(checkfilter3.isSelected()){
 			filters.add(checkfilter3.getText());
+			counter++;
 		}
 		if(checkfilter4.isSelected()){
 			filters.add(checkfilter4.getText());
+			counter++;
 		}
 		if(checkfilter5.isSelected()){
 			filters.add(checkfilter5.getText());
+			counter++;
 		}
-		System.out.println(filters.size());
+		System.out.println(counter);
+		countertmp = counter;
 	}
-	
+
+	/**
+	 * Contains Jakobs price and distance slider.
+	 * Contains Abtins filters, all checkboxes etc made by abtin and function.
+	 * Functionality help by Adin and method
+	 * @param event
+	 */
 	@FXML private void filterAll(ActionEvent event){	
 		tmp1 = PriceSlider.getValue();
 		tmp2 = DistanceSlider.getValue();
-		if(!filterList.isEmpty()&& filters.size()== 1){
-				dbFilterAll = SQLiteJDBC.Filter1(filters.get(0),tmp1,tmp2);
+		if(!filterList.isEmpty()&& countertmp==0){
+			dbFilterAll = SQLiteJDBC.Filter0 (tmp1,tmp2);
+			if (!dbFilterAll.isEmpty()){
 				filterList = FXCollections.observableList(dbFilterAll);
 				HotelTable.setItems(filterList);
-				System.out.println("Filtaar");
-				}
-		else if(!filterList.isEmpty() && filters.size()== 3){
-					dbFilterAll = SQLiteJDBC.Filter2(filters.get(0),filters.get(1),tmp1,tmp2);
-					filterList = FXCollections.observableList(dbFilterAll);
-					HotelTable.setItems(filterList);
-					System.out.println("Filter initialized");
-					}
-		else if(filters.size()== 6 && !filterList.isEmpty()){
-					dbFilterAll = SQLiteJDBC.Filter3(filters.get(0),filters.get(1),filters.get(2),tmp1,tmp2);
-					filterList = FXCollections.observableList(dbFilterAll);
-					HotelTable.setItems(filterList);
-					System.out.println("Filter initialized");
+				System.out.println("Filters initalized");
+				filters.clear();
 			}
-		else if(filters.size()== 10 && !filterList.isEmpty()){
-					dbFilterAll = SQLiteJDBC.Filter4(filters.get(0),filters.get(1),filters.get(2),filters.get(3),tmp1,tmp2);
-					filterList = FXCollections.observableList(dbFilterAll);
-					HotelTable.setItems(filterList);
-					System.out.println("Filter initialized");
-					}
-		else if(filters.size()== 15 && !filterList.isEmpty()){
-					dbFilterAll = SQLiteJDBC.RetrieveHotels();
-					filterList = FXCollections.observableList(dbFilterAll);
-					HotelTable.setItems(filterList);
-					System.out.println("Filter initialized");
-					}
+			else {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.initOwner(App.getPrimaryStage());
+				alert.setTitle("Hotel");
+				alert.setContentText("No hotel found");
+				alert.showAndWait();
+
 			}
-	
+
+		}
+		else if(!filterList.isEmpty()&& countertmp==1){
+			if (filters.isEmpty()){
+			}else
+			dbFilterAll = SQLiteJDBC.Filter1(filters.get(0),tmp1,tmp2);
+			filterList = FXCollections.observableList(dbFilterAll);
+			if (!dbFilterAll.isEmpty()){
+				filterList = FXCollections.observableList(dbFilterAll);
+				HotelTable.setItems(filterList);
+				System.out.println("Filters initalized");
+					filters.clear();
+			}
+			else {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.initOwner(App.getPrimaryStage());
+				alert.setTitle("Hotel");
+				alert.setContentText("No hotel found");
+				alert.showAndWait();
+
+			}
+		}
+		else if(!filterList.isEmpty() && countertmp== 2){
+			if (filters.isEmpty()){
+			}else
+			dbFilterAll = SQLiteJDBC.Filter2(filters.get(0),filters.get(1),tmp1,tmp2);
+			filterList = FXCollections.observableList(dbFilterAll);
+			if (!dbFilterAll.isEmpty()){
+				filterList = FXCollections.observableList(dbFilterAll);
+				HotelTable.setItems(filterList);
+				System.out.println("Filters initalized");
+				filters.clear();
+			}
+			else {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.initOwner(App.getPrimaryStage());
+				alert.setTitle("Hotel");
+				alert.setContentText("No hotel found");
+				alert.showAndWait();
+
+			}
+		}
+		else if(countertmp == 3 && !filterList.isEmpty()){
+			if (filters.isEmpty()){
+			}else
+			dbFilterAll = SQLiteJDBC.Filter3(filters.get(0),filters.get(1),filters.get(2),tmp1,tmp2);
+			filterList = FXCollections.observableList(dbFilterAll);
+			if (!dbFilterAll.isEmpty()){
+				filterList = FXCollections.observableList(dbFilterAll);
+				HotelTable.setItems(filterList);
+				System.out.println("Filters initalized");
+				filters.clear();
+			}
+			else {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.initOwner(App.getPrimaryStage());
+				alert.setTitle("Hotel");
+				alert.setContentText("No hotel found");
+				alert.showAndWait();
+
+			}
+		}
+		else if(countertmp == 4 && !filterList.isEmpty()){
+			if (filters.isEmpty()){
+			}else
+			dbFilterAll = SQLiteJDBC.Filter4(filters.get(0),filters.get(1),filters.get(2),filters.get(3),tmp1,tmp2);
+			filterList = FXCollections.observableList(dbFilterAll);
+			if (!dbFilterAll.isEmpty()){
+				filterList = FXCollections.observableList(dbFilterAll);
+				HotelTable.setItems(filterList);
+				System.out.println("Filters initalized");
+				filters.clear();
+			}
+			else {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.initOwner(App.getPrimaryStage());
+				alert.setTitle("Hotel");
+				alert.setContentText("No hotel found");
+				alert.showAndWait();
+
+			}
+
+		}
+		else if(countertmp == 5 && !filterList.isEmpty()){
+			if (filters.isEmpty()){
+			}else
+			dbFilterAll = SQLiteJDBC.Filter5(filters.get(0),filters.get(1),filters.get(2),filters.get(3), filters.get(4),tmp1,tmp2);
+			filterList = FXCollections.observableList(dbFilterAll);
+			if (!dbFilterAll.isEmpty()){
+				filterList = FXCollections.observableList(dbFilterAll);
+				HotelTable.setItems(filterList);
+				System.out.println("Filters initalized");
+				filters.clear();
+			}
+			else {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.initOwner(App.getPrimaryStage());
+				alert.setTitle("Hotel");
+				alert.setContentText("No hotel found");
+				alert.showAndWait();
+
+			}
+		}
+	}
+
+	/*
+	 * Functionality made by abtin and the whole search method
+	 */
 	@FXML private void searchHotels(ActionEvent event){	
 		temporarySearch = SearchField.getText();
+		dbSearchHotel = SQLiteJDBC.SearchHotels(temporarySearch);
+		SearchList = FXCollections.observableList(dbSearchHotel);
 		if(!SearchList.isEmpty()){
-				dbSearchHotel = SQLiteJDBC.SearchHotels(temporarySearch);
-				SearchList = FXCollections.observableList(dbSearchHotel);
-				HotelTable.setItems(SearchList);
-				System.out.println("Search initialized");
-				}
-			}
-	
+			HotelTable.setItems(SearchList);
+			System.out.println("Search initialized");
+		}
+		else {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.initOwner(App.getPrimaryStage());
+			alert.setTitle("Hotel");
+			alert.setContentText("No hotel found");
+			alert.showAndWait();
+
+		}
+	}
+
 	@FXML private void ViewReviews(ActionEvent event){
 		Hotel hotel = HotelTable.getSelectionModel().getSelectedItem();
 		if (hotel != null) {
@@ -229,6 +344,12 @@ public class HotelOutputController implements Initializable, ControlledScreen {
 		}
 	}
 
+	/**
+	 * This method uses a database query to sort the arraylist of hotels by price ascending when
+	 * the checkbox is clicked
+	 * Created by Jakob Sprint 3.
+	 * @param event
+	 */
 	@FXML private void CheapestHotel(ActionEvent event){
 		if(CheapestHotel.isSelected()){	
 			if(!CheapList.isEmpty()){
@@ -256,7 +377,7 @@ public class HotelOutputController implements Initializable, ControlledScreen {
 			}
 		}
 	}
-	
+
 	@FXML private void PopularHotel(ActionEvent event){
 		if(PopularityHotel.isSelected()){	
 			if(!PopularList.isEmpty()){
@@ -285,6 +406,12 @@ public class HotelOutputController implements Initializable, ControlledScreen {
 		}
 	}
 
+	/**
+	 * This method uses a database query to sort the arraylist of hotels by distance ascending when
+	 * the checkbox is clicked
+	 * Created by Jakob Sprint 3.
+	 * @param event
+	 */
 	@FXML private void DistanceHotel(ActionEvent event){
 		if(DistanceHotel.isSelected()){	
 			if(!DistanceList.isEmpty()){
@@ -312,7 +439,7 @@ public class HotelOutputController implements Initializable, ControlledScreen {
 			}
 		}
 	}
-	
+
 	/**
 	 * This method updates the information shown with what's on the database.
 	 */

@@ -138,7 +138,7 @@ public class App extends Application{
 				System.out.println("Hotel sent to Review");
 			}
 		});
-
+		
 		mainContainer = new MainController();
 		mainContainer.loadScreen(App.HotelOutputID,  App.HotelOutputFile);
 		mainContainer.loadScreen(App.HotelOverviewID,  App.HotelOverviewFile);

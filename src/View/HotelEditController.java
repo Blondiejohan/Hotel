@@ -66,14 +66,14 @@ public class HotelEditController implements  Initializable, ControlledScreen {
 		});
 		System.out.println("HotelEdit initialized");
 	}
-	
+
 	/**
 	 * This method sets the screen parent.
 	 */
 	public void setScreenParent(MainController screenParent){
 		main = screenParent;
 	}
-	
+
 	/**
 	 * This method cancel the creating or editing of a hotel and goes back to the overview page. 
 	 * @param event
@@ -109,7 +109,7 @@ public class HotelEditController implements  Initializable, ControlledScreen {
 			PoolBoolean = 0;
 		}
 	}
-	
+
 	/**
 	 * This method checks if bar is chosen and changes the boolean into sql understandable code.
 	 * @param event
@@ -121,7 +121,7 @@ public class HotelEditController implements  Initializable, ControlledScreen {
 			BarBoolean = 0;
 		}
 	}
-	
+
 	/**
 	 * This method checks if breakfast is chosen and changes the boolean into sql understandable code.
 	 * @param event
@@ -133,7 +133,7 @@ public class HotelEditController implements  Initializable, ControlledScreen {
 			BreakfastBoolean = 0;
 		}
 	}
-	
+
 	/**
 	 * This method checks if pets is chosen and changes the boolean into sql understandable code.
 	 * @param event
@@ -145,7 +145,7 @@ public class HotelEditController implements  Initializable, ControlledScreen {
 			PetsBoolean = 0;
 		}
 	}
-	
+
 	/**
 	 * This method checks if gym is chosen and changes the boolean into sql understandable code.
 	 * @param event
@@ -167,11 +167,11 @@ public class HotelEditController implements  Initializable, ControlledScreen {
 		StarsField.setText("");
 		PopularityField.setText("");
 		DistanceField.setText("");
-		BreakfastCheckBox.setText("");
-		BarCheckBox.setText(String.valueOf(""));
-		GymCheckBox.setText(String.valueOf(""));
-		PetsCheckBox.setText(String.valueOf(""));
-		PoolCheckBox.setText(String.valueOf(""));
+		BreakfastCheckBox.setSelected(false);
+		BarCheckBox.setSelected(false);
+		GymCheckBox.setSelected(false);
+		PetsCheckBox.setSelected(false);
+		PoolCheckBox.setSelected(false);
 		HotelPictureURL.setText(String.valueOf(""));
 	}
 
@@ -198,17 +198,23 @@ public class HotelEditController implements  Initializable, ControlledScreen {
 	 */
 	@FXML private boolean isInputValid() {
 		String errorMessage = "";
+		if (HotelPictureURL.getText() == null || HotelPictureURL.getText().length() == 0) {
+			errorMessage += "Not a valid url \n";
+		}
 		if (HotelNameField.getText() == null || HotelNameField.getText().length() == 0) {
 			errorMessage += "No valid Hotel name \n"; 
 		}
 		if (StarsField.getText() == null || StarsField.getText().length() == 0) {
 			errorMessage += "Not a correct amount of stars \n"; 
-		}
+		}	
 		if (PopularityField.getText() == null || PopularityField.getText().length() == 0) {
 			errorMessage += "Not a correct amount of popularity \n"; 
-		}
+		}	
 		if (DistanceField.getText() == null || DistanceField.getText().length() == 0) {
 			errorMessage += "Not a valid distance \n"; 
+		}
+		if (PriceField.getText() == null || PriceField.getText().length() == 0) {
+			errorMessage += "Not a valid Price \n"; 
 		}
 		if (errorMessage.length() == 0) {
 			return true;
@@ -218,8 +224,10 @@ public class HotelEditController implements  Initializable, ControlledScreen {
 			alert.setTitle("Invalid Fields");
 			alert.setHeaderText("Please correct invalid fields");
 			alert.setContentText(errorMessage);
+			errorMessage="";
 			alert.showAndWait();
 			return false;
+			
 		}
 	}
 

@@ -90,6 +90,11 @@ public class HotelOverviewController implements  Initializable, ControlledScreen
 		main.setScreen(App.HotelOutputID);
 	}
 
+	/**
+	 * This method sets the current scene to register screen when button is clicked
+	 * Created by Jakob Sprint 4.
+	 * @param event
+	 */
 	@FXML private void goToRegister(ActionEvent event){
 		main.setScreen(App.RegisterScreenID);
 	}

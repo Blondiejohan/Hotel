@@ -1,62 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.layout.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<SplitPane orientation="VERTICAL" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.InsertReview">
+<SplitPane orientation="VERTICAL" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.InsertReview">
   <items>
     <AnchorPane>
          <children>
-            <TextField fx:id="UserField" layoutX="41.0" layoutY="15.0" promptText="User">
+            <TextField fx:id="UserField" layoutX="123.0" layoutY="30.0" promptText="User" AnchorPane.topAnchor="30.0">
                <font>
                   <Font size="19.0" />
                </font>
             </TextField>
-            <Button fx:id="CancelButton" layoutX="908.0" layoutY="708.0" mnemonicParsing="false" onAction="#Cancel" text="Cancel" />
-            <Button fx:id="insert" layoutX="719.0" layoutY="707.0" mnemonicParsing="false" onAction="#handleOk" text="Submit your review" />
-            <TextArea fx:id="InfoField" layoutX="46.0" layoutY="145.0" prefHeight="535.0" prefWidth="942.0" wrapText="true">
+            <Button fx:id="CancelButton" layoutX="908.0" layoutY="708.0" mnemonicParsing="false" onAction="#Cancel" text="Cancel" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <Button fx:id="insert" layoutX="719.0" layoutY="707.0" mnemonicParsing="false" onAction="#handleOk" text="Submit your review" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="100.0" />
+            <TextArea fx:id="InfoField" layoutX="46.0" layoutY="145.0" prefHeight="535.0" prefWidth="942.0" wrapText="true" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="145.0">
                <font>
                   <Font size="15.0" />
                </font>
             </TextArea>
-            <TextField fx:id="HotelNameField" editable="false" layoutX="666.0" layoutY="14.0" prefHeight="44.0" prefWidth="287.0">
+            <TextField fx:id="HotelNameField" editable="false" layoutX="666.0" layoutY="14.0" prefHeight="44.0" prefWidth="287.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
             <CheckBox fx:id="OneStarCheckBox" layoutX="46.0" layoutY="113.0" mnemonicParsing="false" onAction="#OneStarChosen" />
-            <CheckBox fx:id="TwoStarCheckBox" layoutX="85.0" layoutY="113.0" mnemonicParsing="false" onAction="#TwoStarChosen" />
-            <CheckBox fx:id="ThreeStarCheckBox" layoutX="122.0" layoutY="113.0" mnemonicParsing="false" onAction="#ThreeStarChosen" />
-            <CheckBox fx:id="FourStarCheckBox" layoutX="160.0" layoutY="113.0" mnemonicParsing="false" onAction="#FourStarChosen" />
-            <CheckBox fx:id="FiveStarCheckBox" layoutX="199.0" layoutY="113.0" mnemonicParsing="false" onAction="#FiveStarChosen" />
-            <Label layoutX="220.0" layoutY="108.0" prefHeight="25.0" prefWidth="17.0" text="5">
+            <CheckBox fx:id="TwoStarCheckBox" layoutX="91.0" layoutY="113.0" mnemonicParsing="false" onAction="#TwoStarChosen" />
+            <CheckBox fx:id="ThreeStarCheckBox" layoutX="143.0" layoutY="113.0" mnemonicParsing="false" onAction="#ThreeStarChosen" />
+            <CheckBox fx:id="FourStarCheckBox" layoutX="194.0" layoutY="112.0" mnemonicParsing="false" onAction="#FourStarChosen" />
+            <CheckBox fx:id="FiveStarCheckBox" layoutX="241.0" layoutY="111.0" mnemonicParsing="false" onAction="#FiveStarChosen" />
+            <Label layoutX="266.0" layoutY="108.0" prefHeight="25.0" prefWidth="17.0" text="5">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="179.0" layoutY="109.0" prefHeight="25.0" prefWidth="17.0" text="4">
+            <Label layoutX="220.0" layoutY="109.0" prefHeight="25.0" prefWidth="17.0" text="4">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="143.0" layoutY="109.0" prefHeight="25.0" prefWidth="17.0" text="3">
+            <Label layoutX="173.0" layoutY="108.0" prefHeight="25.0" prefWidth="0.0" text="3">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="105.0" layoutY="109.0" prefHeight="25.0" prefWidth="17.0" text="2">
+            <Label layoutX="120.0" layoutY="109.0" prefHeight="25.0" prefWidth="17.0" text="2">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="65.0" layoutY="109.0" prefHeight="25.0" prefWidth="17.0" text="1">
+            <Label layoutX="71.0" layoutY="109.0" prefHeight="25.0" prefWidth="17.0" text="1">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
+            <Label layoutX="43.0" layoutY="87.0" prefHeight="21.0" prefWidth="49.0" text="Rating" />
+            <Label layoutX="41.0" layoutY="41.0" text="Your name" />
+            <Label layoutX="491.0" layoutY="124.0" text="Write your review below" />
+            <Label layoutX="543.0" layoutY="32.0" text="Hotel Name" AnchorPane.rightAnchor="370.0" />
          </children>
       </AnchorPane>
   </items>

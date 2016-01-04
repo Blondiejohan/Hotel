@@ -18,7 +18,10 @@ public class ReviewJDBC {
 		ReviewConn = new ReviewConn();
 		System.out.println("Connected");
 	}
-
+	
+	/*
+	 * Insert a review to the database through a query
+	 */
 	public static void InsertReview(String HotelName, String Info, String User, Integer Stars){
 		String correctname = HotelName.toUpperCase();
 		String correctUser = User.toUpperCase();
@@ -36,10 +39,12 @@ public class ReviewJDBC {
 		}
 		catch (SQLException ex) {
 			// handle erros here
-			System.out.println("\n" + "Review added" + "\n");
+			System.out.println("\n" + "Review sent" + "\n");
 		}
 	}
-
+	/*
+	 * Retrieves all reviews
+	 */
 	public static ArrayList<Reviews> RetrieveReviews(){
 
 
@@ -82,7 +87,9 @@ public class ReviewJDBC {
 		return list;
 
 	}
-
+	/*
+	 * retrieves reviews by matching hotelname
+	 */
 	public static ArrayList<Reviews> RetrieveOneReview(String name1){
 
 		String correctname = name1.toUpperCase();
@@ -127,7 +134,9 @@ public class ReviewJDBC {
 		return list;
 
 	}
-	
+	/*
+	 * Retrieve reviews by matching username
+	 */
 	public static ArrayList<Reviews> RetrieveUserReviews(String name1){
 
 		String correctname = name1.toUpperCase();

@@ -19,6 +19,14 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+/**
+ * InsertReview.java
+ * Purpose: Class contains the Insert review functionality.
+ * 
+ * @author Adin during sprint 3/4
+ * @version 1.0
+ *
+ */
 
 
 
@@ -57,7 +65,9 @@ public class InsertReview implements  Initializable, ControlledScreen  {
 
 	public static ObjectProperty<Hotel> ReviewName;
 
-
+	/*
+	 * initializes the screen and resets all previous inputs to the reviews fields and checkboxes
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		resetHotel();
@@ -80,11 +90,16 @@ public class InsertReview implements  Initializable, ControlledScreen  {
 	public void setScreenParent(MainController screenParent){
 		main = screenParent;
 	}
+	/*
+	 * returns to former page
+	 */
 	@FXML
 	private void Cancel(ActionEvent event){
 		main.setScreen(App.HotelOutputID);
 	}
-
+	/* 
+	 * method for reseting previous entered fields 
+	 */
 	public void resetHotel(){
 		HotelNameField.setText("");
 		UserField.setText("");
@@ -95,7 +110,9 @@ public class InsertReview implements  Initializable, ControlledScreen  {
 		FourStarCheckBox.setSelected(false);
 		FiveStarCheckBox.setSelected(false);
 	}
-
+	/*
+	 * method for inserting a hotel in the database
+	 */
 	@FXML
 	private void handleOk(ActionEvent event) {
 		if (isInputValid()) {
@@ -112,6 +129,10 @@ public class InsertReview implements  Initializable, ControlledScreen  {
 
 		}
 	}
+	/*
+	 * Changes the amount of stars of a reviews when a checkbox gets checked. Uncheckes all other
+	 * checkboxes.
+	 */
 	@FXML
 	private void OneStarChosen(ActionEvent event) {
 		if(OneStarCheckBox.isSelected()==true){
@@ -122,6 +143,10 @@ public class InsertReview implements  Initializable, ControlledScreen  {
 			FiveStarCheckBox.setSelected(false);
 		}
 	}
+	/*
+	 * Changes the amount of stars of a reviews when a checkbox gets checked. Uncheckes all other
+	 * checkboxes.
+	 */
 	@FXML
 	private void TwoStarChosen(ActionEvent event) {
 		if(TwoStarCheckBox.isSelected()==true){
@@ -132,6 +157,10 @@ public class InsertReview implements  Initializable, ControlledScreen  {
 			FiveStarCheckBox.setSelected(false);
 		}
 	}
+	/*
+	 * Changes the amount of stars of a reviews when a checkbox gets checked. Uncheckes all other
+	 * checkboxes.
+	 */
 	@FXML
 	private void ThreeStarChosen(ActionEvent event) {
 		if(ThreeStarCheckBox.isSelected()==true){
@@ -142,6 +171,10 @@ public class InsertReview implements  Initializable, ControlledScreen  {
 			FiveStarCheckBox.setSelected(false);
 		}
 	}
+	/*
+	 * Changes the amount of stars of a reviews when a checkbox gets checked. Uncheckes all other
+	 * checkboxes.
+	 */
 	@FXML
 	private void FourStarChosen(ActionEvent event) {
 		if(FourStarCheckBox.isSelected()==true){
@@ -152,6 +185,10 @@ public class InsertReview implements  Initializable, ControlledScreen  {
 			FiveStarCheckBox.setSelected(false);
 		}
 	}
+	/*
+	 * Changes the amount of stars of a reviews when a checkbox gets checked. Uncheckes all other
+	 * checkboxes.
+	 */
 	@FXML
 	private void FiveStarChosen(ActionEvent event) {
 		if(FiveStarCheckBox.isSelected()==true){
@@ -164,7 +201,9 @@ public class InsertReview implements  Initializable, ControlledScreen  {
 	}
 
 
-
+	/*
+	 * Checks if all the fields are filled out and if a check box is checked, otherwise pops error message
+	 */
 	@FXML
 	private boolean isInputValid() {
 		String errorMessage = "";

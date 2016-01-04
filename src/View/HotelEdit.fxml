@@ -46,8 +46,8 @@
             <CheckBox fx:id="BarCheckBox" mnemonicParsing="false" onAction="#barChosen" prefHeight="22.0" prefWidth="113.0" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <CheckBox fx:id="GymCheckBox" mnemonicParsing="false" onAction="#gymChosen" prefHeight="22.0" prefWidth="105.0" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <CheckBox fx:id="PetsCheckBox" mnemonicParsing="false" onAction="#petsChosen" prefHeight="22.0" prefWidth="114.0" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <CheckBox fx:id="PoolCheckBox" mnemonicParsing="false" onAction="#poolChosen" prefHeight="22.0" prefWidth="24.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <CheckBox fx:id="BreakfastCheckBox" mnemonicParsing="false" onAction="#breakfastChosen" prefHeight="22.0" prefWidth="24.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <CheckBox fx:id="PoolCheckBox" mnemonicParsing="false" onAction="#poolChosen" prefHeight="22.0" prefWidth="99.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <CheckBox fx:id="BreakfastCheckBox" mnemonicParsing="false" onAction="#breakfastChosen" prefHeight="22.0" prefWidth="149.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
          </children>
       </GridPane>
       <ButtonBar layoutX="577.0" layoutY="713.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0">

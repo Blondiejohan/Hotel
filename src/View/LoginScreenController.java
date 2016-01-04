@@ -20,8 +20,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import Application.*;
+import Database.SQLiteJDBC;
 
-
+/**
+ * LoginScreenController.java
+ * Purpose: This class handles and verifies user information with database to authorize users
+ * 
+ * @author Jakob during sprint 2/3
+ * @version 1.0
+ *
+ */
 
 public class LoginScreenController implements ControlledScreen, Initializable {
    
@@ -51,28 +59,31 @@ public class LoginScreenController implements ControlledScreen, Initializable {
     	System.out.println("Login initialized");
     }   
     
-    @FXML
-    private void handleRegisterAction(ActionEvent event) throws IOException {
-    	Parent register_page_parent = FXMLLoader.load(getClass().getResource("FXMLRegisterPage.fxml"));
-    	Scene register_page_scene = new Scene(register_page_parent);
-    	Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	app_stage.setScene(register_page_scene);
-    	app_stage.show();
-    }
     
+    /**
+     *  if the back button is clicked on this returns the user to previous page
+     * @param event
+     */
     @FXML
     private void handleBackAction(ActionEvent event){
     	main.setScreen(App.HotelOutputID);
     	invalid_label.setText("");
     }
     
+    /**
+     *  when login button is clicked this runs the check to test if user information is valid
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
         
         
-//            System.out.println("DO IT");
 
-            
+
+            /**
+             *  runs isValidCredentials() if it returns true you get logged in otherwise error appears
+             */
             if (isValidCredentials())
             {
             	invalid_label.setText("");
@@ -89,12 +100,21 @@ public class LoginScreenController implements ControlledScreen, Initializable {
             }
     }
     
+    
+    /**
+     * Connects to the database and uses the information in the username and password field to check against db
+     * 
+     */
     private boolean isValidCredentials()
     {
+    	/**
+    	 * Default does not let in users
+    	 */
         boolean let_in = false;
-//        System.out.println( "SELECT * FROM Users WHERE USERNAME= " + "'" + username_box.getText() + "'" 
-//            + " AND PASSWORD= " + "'" + password_box.getText() + "'" );
     
+        /**
+         * Opens connection
+         */
         Connection c = null;
         Statement stmt = null;
         try {
@@ -104,9 +124,16 @@ public class LoginScreenController implements ControlledScreen, Initializable {
             System.out.println("Login connected to Database");
             stmt = c.createStatement();
             
+            /**
+             * Prepares statement for database and executes query with database
+             */
             ResultSet rs = stmt.executeQuery( "SELECT * FROM Users WHERE USERNAME= " + "'" + username_box.getText() + "'" 
             + " AND PASSWORD= " + "'" + password_box.getText() + "'");
             
+            /**
+             * Compares the results returned by the database if the information is accurate it changes let_in 
+             * variable to true and the user is logged in
+             */
             while ( rs.next() ) {
                  if (rs.getString("USERNAME") != null && rs.getString("PASSWORD") != null) { 
                      String  username = rs.getString("USERNAME");

@@ -27,6 +27,14 @@ import Classes.Hotel;
 import Classes.Reviews;
 import Database.ReviewJDBC;
 
+/**
+ * ViewAllReviews.java
+ * Purpose: Class contains the view all reviews functionality.
+ * 
+ * @author Adin during sprint 3/4
+ * @version 1.0
+ *
+ */
 public class ViewAllReviews implements Initializable, ControlledScreen {
 
 
@@ -48,7 +56,7 @@ public class ViewAllReviews implements Initializable, ControlledScreen {
 	@FXML 
 	private Label StarsLabel;
 	@FXML 
-	ArrayList<Reviews> database = ReviewJDBC.RetrieveOneReview("SCANDIC");
+	ArrayList<Reviews> database = ReviewJDBC.RetrieveReviews();
 	@FXML
 	private ObservableList<Reviews> obslist = FXCollections.observableArrayList(database);
 
@@ -61,6 +69,11 @@ public class ViewAllReviews implements Initializable, ControlledScreen {
 	public void setScreenParent(MainController screenParent){
 		main = screenParent;
 	}
+	/*
+	 * goes to reviews by user page
+	 * Has to chose a user to use in the user page. The chosen user is used in the database query
+	 * getting all reviews for that user. if not selected error pop-up
+	 */
 	@FXML
 	private void goToCheckReview(ActionEvent event){
 
@@ -84,7 +97,9 @@ public class ViewAllReviews implements Initializable, ControlledScreen {
 		}
 
 	}
-	
+	/*
+	Initializes the screen and sets items in the database to the retrieved sql query.
+	*/
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -114,7 +129,7 @@ public class ViewAllReviews implements Initializable, ControlledScreen {
 			});
 			ReviewsTable.setItems(obslist);
 			ReviewsNameColumn.setCellValueFactory(cellData -> cellData.getValue().HotelUserProperty());
-			showReviewDetails(null);
+			showReviewDetails(null);	
 			ReviewsTable.getSelectionModel().selectedItemProperty().addListener(
 					(observable, oldValue, newValue) -> showReviewDetails(newValue));
 			System.out.println("HotelReviews initialized with content");
@@ -123,18 +138,25 @@ public class ViewAllReviews implements Initializable, ControlledScreen {
 			System.out.println("HotelReviews initialized without content");
 		}
 	}
-
+      /* 
+       * return to hotel output
+      */
 	@FXML
 	private void Cancel(ActionEvent event){
 		main.setScreen(App.HotelOutputID);
 	}
-
+	/*
+	 * updates the fxml list
+	 */
 	@FXML public void setList(){
 		database = ReviewJDBC.RetrieveOneReview(hotelname);
 		obslist = FXCollections.observableList(database);
 		ReviewsTable.setItems(obslist);
 
 	}
+	/*
+	 * the retrieved DB hotels are displayed with this function.s
+	 */
 	private void showReviewDetails(Reviews Review) {
 		if (Review != null) {
 

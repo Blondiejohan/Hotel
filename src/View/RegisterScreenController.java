@@ -21,6 +21,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * RegisterScreenController.java
+ * Purpose: This class inserts users into the users table in the database.
+ * 
+ * @author Jakob during sprint 4
+ * @version 1.0
+ *
+ */
+
 public class RegisterScreenController implements ControlledScreen, Initializable {
 	
 	@FXML
@@ -36,7 +45,10 @@ public class RegisterScreenController implements ControlledScreen, Initializable
 		main = screenParent;
 	}
     
-
+    /**
+     * Handles button action for going back the previous page
+     * @param event
+     */
 	@FXML
 	private void goToOverview(ActionEvent event){
 	    RegName.clear();
@@ -50,6 +62,11 @@ public class RegisterScreenController implements ControlledScreen, Initializable
     	System.out.println("Register initialized");
     }    
     
+    /**
+     * Uses the information in the text boxes of the register form and sends and inserts the info into db
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void handleRegistrationAction(ActionEvent event) throws IOException{
     	if(RegName.getText().equals("") || RegPass.getText().equals("")){

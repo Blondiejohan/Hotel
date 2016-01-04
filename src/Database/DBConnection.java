@@ -1,6 +1,12 @@
 package Database;
 
 import java.sql.*;
+/**
+ * Dbconnection, connection for larger part of the database
+ * @author Adin during sprint 1
+ * @version 1.0
+ *
+ */
 
 public class DBConnection {
 

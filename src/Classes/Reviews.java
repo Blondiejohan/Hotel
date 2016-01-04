@@ -4,7 +4,14 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
-
+/**
+ * Reviews.java
+ * Purpose: Class contains the reviews.
+ * 
+ * @author Adin during sprint 3/4
+ * @version 1.0
+ *
+ */
 
 public class Reviews {
 
@@ -15,7 +22,9 @@ public class Reviews {
 	private final IntegerProperty Stars;
 
 
-
+	/**
+	 * This method is used to create an empty review.
+	 */
 	public Reviews() {
 			this.HotelName = new SimpleStringProperty();
 			this.Stars = new SimpleIntegerProperty();
@@ -25,7 +34,9 @@ public class Reviews {
 	}
 
 
-
+	/**
+	 * Create a review with several parameters.
+	 */
 	public Reviews(String HotelName, String Info, String Date, String User, int Stars) {
 		this.HotelName = new SimpleStringProperty(HotelName);
 		this.Info = new SimpleStringProperty(Info);
@@ -36,6 +47,7 @@ public class Reviews {
 
 
 	//HotelName
+	//getters and setters
 	public String getRHotelName() {
 		return HotelName.get();
 	}
@@ -48,6 +60,7 @@ public class Reviews {
 	}
 
 	//Info
+	//getters and setters
 	public String getHotelInfo() {
 		return Info.get();
 	}
@@ -61,6 +74,7 @@ public class Reviews {
 	}
 
 	//Date
+	//getters and setters
 	public String getReviewDate() {
 		return Date.get();
 	}
@@ -74,6 +88,7 @@ public class Reviews {
 	}
 	
 	//User
+	//getters and setters
 	public String getUser() {
 		return User.get();
 	}
@@ -87,6 +102,7 @@ public class Reviews {
 	}
 	
 	//Stars
+	//getters and setters
 	public int getStars() {
 		return Stars.get();
 	}
